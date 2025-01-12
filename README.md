@@ -1,6 +1,6 @@
 # Dental Stall Scraper
 
-The Dentalstall Scraper Tool is a web scraping project to scrapte data from dentalstall.com. It collects details such as id, title, price and product image and stores this data in a json file. It also caches the product details in redis and sends relevant notifications via logging, email, and SMS.
+The Dentalstall Scraper Tool is a web scraping project to scrape data from dentalstall.com. It collects details such as id, title, price and product image and stores this data in a json file. It also caches the product details in redis and sends relevant notifications via logging, email, and SMS.
 
 ## Table of Contents
 
