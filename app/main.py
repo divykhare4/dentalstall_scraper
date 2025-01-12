@@ -25,7 +25,9 @@ def scrape(request: ScrapeRequest, token: str = Depends(authenticate)):
         os.path.abspath(os.path.join("output", fetch_settings().output_json_filename))
     )
 
-    scraped_products = scraper.scrape_all(request.total_pages)
+    total_pages = min(request.total_pages, fetch_settings().max_page_limit)
+
+    scraped_products = scraper.scrape_all(total_pages)
     new_count = 0
     updated_count = 0
 
@@ -43,4 +45,4 @@ def scrape(request: ScrapeRequest, token: str = Depends(authenticate)):
                 new_count} new products saved and {updated_count} products updated."""
     )
 
-    return {"new": new_count, "updated": updated_count}
+    return {"new": new_count, "updated": updated_count, "total_pages": total_pages}

@@ -75,5 +75,4 @@ class JSONProductStorage(AbstractProductStorage):
         with open(self.storage_path, "w") as file:
             json.dump([p.model_dump() for p in product_map.values()], file, indent=4)
 
-        logger.info(f"Products saved: {new_count} new, {updated_count} updated.")
         return new_count, updated_count
